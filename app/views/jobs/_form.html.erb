@@ -1,0 +1,32 @@
+<%= form_for @job do |f| %>
+  <% if @job.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h2>
+
+      <ul>
+      <% @job.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <fieldset>
+    <legend>Job</legend>
+    <dl>
+      <dt><label for="job_title">Title:</label></dt>
+      <dd><%= f.text_field :title %></dd>
+    </dl>
+    <dl>
+      <dt><label>Magics:</label></dt>
+      <dd>
+        <ul id="job_magics">
+          <%= f.fields_for :job_magics do |job_magic| -%>
+            <%= render 'job_magic_fields', :f => job_magic %>
+          <%- end -%>
+        </ul>
+        <p><%= link_to_add_fields 'Add Magic', f, :job_magics, '#job_magics' %></p>
+      </dd>
+    </dl>
+    <%= f.submit %> or <%= link_to 'Cancel', jobs_path %>
+  </fieldset>
+<%- end -%>

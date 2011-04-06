@@ -1,0 +1,23 @@
+<h1>Listing magics</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @magics.each do |magic| %>
+  <tr>
+    <td><%= magic.name %></td>
+    <td><%= link_to 'Show', magic %></td>
+    <td><%= link_to 'Edit', edit_magic_path(magic) %></td>
+    <td><%= link_to 'Destroy', magic, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Magic', new_magic_path %>

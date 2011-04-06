@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<fieldset>
+  <legend><%= @magic.name %></legend>
+  <dl>
+    <dt><label>Jobs:</label></dt>
+    <dd>
+      <ul>
+        <%- @magic.jobs.each do |job| -%>
+          <li><%= job.title %></li>
+        <%- end -%>
+      </ul>
+    </dd>
+  </dl>
+</fieldset>
+
+<%= link_to 'Edit', edit_magic_path(@magic) %> |
+<%= link_to 'Back', magics_path %>

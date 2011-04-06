@@ -1,0 +1,21 @@
+<%= form_for(@magic) do |f| %>
+  <% if @magic.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@magic.errors.count, "error") %> prohibited this magic from being saved:</h2>
+
+      <ul>
+      <% @magic.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <fieldset>
+    <legend>Magic</legend>
+    <dl>
+      <dt><label for="magic_name">Name:</label></dt>
+      <dd><%= f.text_field :name %></dd>
+    </dl>
+    <%= f.submit %> or <%= link_to 'Cancel', jobs_path %>
+  </fieldset>
+<% end %>

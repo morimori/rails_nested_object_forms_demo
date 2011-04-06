@@ -1,0 +1,1 @@
+has_many :through で N:N に関連付けされたモデルを Nested Object Forms を使って編集するアプリのデモ
